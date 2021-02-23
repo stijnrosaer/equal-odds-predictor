@@ -64,5 +64,4 @@ if __name__ == '__main__':
     data = [Data() for _ in range(2000)]
 
     plot(data, 0)
-
     exit(0)
