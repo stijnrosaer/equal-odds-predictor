@@ -12,7 +12,7 @@ class Data:
         self.A = random.randint(0, 1)
         self.R = random.random()
 
-        self.Y = random.randint(0,1)
+        self.Y = 0
         r = random.random()
         if self.A == 1:
             if self.R > 0.6:
@@ -73,8 +73,8 @@ def plot(data, sensitive_value):
 
 
 if __name__ == '__main__':
-    """
-    X, y = make_classification(n_samples=10000, n_features=3, n_redundant=0)
+
+    X, y = make_classification(n_samples=1000, n_features=2, n_redundant=0, weights=[0.5])
 
     trainX, testX, trainy, testy = train_test_split(X, y, test_size=0.5, random_state=2, stratify=y)
 
@@ -89,21 +89,21 @@ if __name__ == '__main__':
     # calculate the g-mean for each threshold
     gmeans = np.sqrt(tpr * (1 - fpr))
     # locate the index of the largest g-mean
-    ix = argmax(gmeans)
-    print('Best Threshold=%f, G-Mean=%.3f' % (thresholds[ix], gmeans[ix]))
+    # ix = argmax(gmeans)
+    # print('Best Threshold=%f, G-Mean=%.3f' % (thresholds[ix], gmeans[ix]))
     # plot the roc curve for the model
     plt.plot([0, 1], [0, 1], linestyle='--', label='No Skill')
     plt.plot(fpr, tpr, marker='.', label='Logistic')
-    plt.scatter(fpr[ix], tpr[ix], marker='o', color='black', label='Best')
+    # plt.scatter(fpr[ix], tpr[ix], marker='o', color='black', label='Best')
     # axis labels
     plt.xlabel('False Positive Rate')
     plt.ylabel('True Positive Rate')
     plt.legend()
     # show the plot
     plt.show()
-    """
 
-    data = [Data() for _ in range(1000)]
 
-    plot(data, 0)
+    # data = [Data() for _ in range(1000)]
+    #
+    # plot(data, 0)
     exit(0)
